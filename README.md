@@ -12,7 +12,7 @@ Included:
 * [Mockito](https://www.scalatest.org/plus/mockito) (mocking library)
 * [Scalafmt](https://scalameta.org/scalafmt/) (code formatting)
 * [Scala Steward](https://github.com/scala-steward-org/scala-steward) (automatic dependency updates)
-* CI using Github Actions
+* CI using [Github Actions](https://github.com/features/actions)
 
 ## Installation
 
