@@ -7,10 +7,12 @@ Starter project for Code Katas in Scala. Batteries included.
 
 Included:
 
-* Sbt setup (build tool)
-* Scalatest (testing library)
-* Mockito (mocking library)
-* Scalafmt (code formatting)
+* [Sbt](https://www.scala-sbt.org/) (build tool)
+* [Scalatest](https://www.scalatest.org/) (testing library)
+* [Mockito](https://www.scalatest.org/plus/mockito) (mocking library)
+* [Scalafmt](https://scalameta.org/scalafmt/) (code formatting)
+* [Scala Steward](https://github.com/scala-steward-org/scala-steward) (automatic dependency updates)
+* CI using Github Actions
 
 ## Installation
 
