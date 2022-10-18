@@ -16,4 +16,4 @@ lazy val root = project
     libraryDependencies += mockito % Test,
     IntegrationTest / testOptions := Seq(Tests.Filter(itFilter))
   )
-val projectScalaVersion = "2.13.9"
+val projectScalaVersion = "2.13.10"
