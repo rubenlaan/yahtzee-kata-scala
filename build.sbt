@@ -6,6 +6,7 @@ ThisBuild / organization := "nl.codecraftr"
 ThisBuild / semanticdbEnabled := true
 ThisBuild / semanticdbVersion := scalafixSemanticdb.revision
 ThisBuild / scalacOptions ++= Seq("-Wunused:imports")
+ThisBuild / scalafixScalaBinaryVersion := "2.13"
 
 lazy val root = project
   .enablePlugins(ScalafmtPlugin)
