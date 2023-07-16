@@ -11,8 +11,10 @@ Included:
 * [Scalatest](https://www.scalatest.org/) (testing library)
 * [Mockito](https://www.scalatest.org/plus/mockito) (mocking library)
 * [Scalafmt](https://scalameta.org/scalafmt/) (code formatting)
+* [ScalaFix](https://scalacenter.github.io/scalafix/) (refactoring and linting)
 * [Scala Steward](https://github.com/scala-steward-org/scala-steward) (automatic dependency updates)
 * CI using [Github Actions](https://github.com/features/actions)
+* Fast feedback using git hooks (pre-commit, pre-push)
 
 ## Installation
 
@@ -45,10 +47,21 @@ Or in watch mode:
 sbt ~test
 ```
 
-## Format
+## Formatting
 
 ```shell
 sbt scalafmtAll
+```
+
+```shell
+sbt scalafixAll
+```
+
+## Git Hooks
+
+To install the git hooks run:
+```shell
+./hooks/install
 ```
 
 ## IDE
