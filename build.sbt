@@ -3,6 +3,9 @@ import sbt.Keys.libraryDependencies
 
 ThisBuild / scalaVersion := "2.13.11"
 ThisBuild / organization := "nl.codecraftr"
+ThisBuild / semanticdbEnabled := true
+ThisBuild / semanticdbVersion := scalafixSemanticdb.revision
+ThisBuild / scalacOptions ++= Seq("-Wunused:imports")
 
 lazy val root = project
   .enablePlugins(ScalafmtPlugin)
