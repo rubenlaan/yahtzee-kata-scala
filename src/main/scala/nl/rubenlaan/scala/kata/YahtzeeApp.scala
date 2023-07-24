@@ -46,14 +46,16 @@ object YahtzeeApp {
 
     category match {
       case Chance  => dices.map(_.value).sum
-      case Aces    => dices.filter(_ == One).map(_.value).sum
-      case Twos    => dices.filter(_ == Two).map(_.value).sum
-      case Threes  => dices.filter(_ == Three).map(_.value).sum
-      case Fours   => dices.filter(_ == Four).map(_.value).sum
-      case Fives   => dices.filter(_ == Five).map(_.value).sum
-      case Sixes   => dices.filter(_ == Six).map(_.value).sum
+      case Aces    => sumDicesBy(One)(dices)
+      case Twos    => sumDicesBy(Two)(dices)
+      case Threes  => sumDicesBy(Three)(dices)
+      case Fours   => sumDicesBy(Four)(dices)
+      case Fives   => sumDicesBy(Five)(dices)
+      case Sixes   => sumDicesBy(Six)(dices)
       case Yahtzee => if (dices.distinct.length == 1) 50 else 0
     }
   }
 
+  private def sumDicesBy(dice: Dice)(dices: Seq[Dice]) =
+    dices.filter(_ == dice).map(_.value).sum
 }
