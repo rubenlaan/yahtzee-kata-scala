@@ -1,4 +1,4 @@
-package nl.codecraftr.scala.kata
+package nl.rubenlaan.scala.kata
 
 object Main extends App {
   println("hello, world")
