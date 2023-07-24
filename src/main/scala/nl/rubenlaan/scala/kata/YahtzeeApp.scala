@@ -45,17 +45,17 @@ object YahtzeeApp {
     val dices = Seq(dice1, dice2, dice3, dice4, dice5)
 
     category match {
-      case Chance  => dices.map(_.value).sum
-      case Aces    => sumDicesBy(One)(dices)
-      case Twos    => sumDicesBy(Two)(dices)
-      case Threes  => sumDicesBy(Three)(dices)
-      case Fours   => sumDicesBy(Four)(dices)
-      case Fives   => sumDicesBy(Five)(dices)
-      case Sixes   => sumDicesBy(Six)(dices)
+      case Chance  => sumDices()(dices)
+      case Aces    => sumDices(_ == One)(dices)
+      case Twos    => sumDices(_ == Two)(dices)
+      case Threes  => sumDices(_ == Three)(dices)
+      case Fours   => sumDices(_ == Four)(dices)
+      case Fives   => sumDices(_ == Five)(dices)
+      case Sixes   => sumDices(_ == Six)(dices)
       case Yahtzee => if (dices.distinct.length == 1) 50 else 0
     }
   }
 
-  private def sumDicesBy(dice: Dice)(dices: Seq[Dice]) =
-    dices.filter(_ == dice).map(_.value).sum
+  private def sumDices(predicate: Dice => Boolean = _ => true) =
+    (dices: Seq[Dice]) => dices.filter(predicate).map(_.value).sum
 }
