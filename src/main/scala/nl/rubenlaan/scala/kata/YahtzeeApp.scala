@@ -48,6 +48,10 @@ object YahtzeeApp {
       case Chance  => dices.map(_.value).sum
       case Aces    => dices.filter(_ == One).map(_.value).sum
       case Twos    => dices.filter(_ == Two).map(_.value).sum
+      case Threes  => dices.filter(_ == Three).map(_.value).sum
+      case Fours   => dices.filter(_ == Four).map(_.value).sum
+      case Fives   => dices.filter(_ == Five).map(_.value).sum
+      case Sixes   => dices.filter(_ == Six).map(_.value).sum
       case Yahtzee => if (dices.distinct.length == 1) 50 else 0
     }
   }

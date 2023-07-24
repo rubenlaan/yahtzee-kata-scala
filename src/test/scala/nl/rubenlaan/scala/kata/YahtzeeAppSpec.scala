@@ -1,9 +1,7 @@
 package nl.rubenlaan.scala.kata
 
-import org.scalatest.BeforeAndAfter
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
-import org.scalatestplus.mockito.MockitoSugar
 
 class YahtzeeAppSpec extends AnyWordSpec with Matchers {
   "score" should {
@@ -25,6 +23,22 @@ class YahtzeeAppSpec extends AnyWordSpec with Matchers {
 
     "return 6 given dices 2, 2, 2, 5, 6 and scoring it in twos" in {
       YahtzeeApp.score(Two, Two, Two, Five, Six, Twos) shouldBe 6
+    }
+
+    "return 9 given dices 3, 3, 3, 5, 6 and scoring it in threes" in {
+      YahtzeeApp.score(Three, Three, Three, Five, Six, Threes) shouldBe 9
+    }
+
+    "return 12 given dices 4, 4, 4, 5, 6 and scoring it in fours" in {
+      YahtzeeApp.score(Four, Four, Four, Five, Six, Fours) shouldBe 12
+    }
+
+    "return 10 given dices 5, 5, 3, 4, 6 and scoring it in fives" in {
+      YahtzeeApp.score(Five, Five, Three, Four, Six, Fives) shouldBe 10
+    }
+
+    "return 18 given dices 6, 6, 6, 4, 5 and scoring it in sixes" in {
+      YahtzeeApp.score(Six, Six, Six, Four, Five, Sixes) shouldBe 18
     }
 
   }
