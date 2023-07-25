@@ -77,5 +77,17 @@ class YahtzeeAppSpec extends AnyWordSpec with Matchers {
       YahtzeeApp.score(Four, Four, Two, Five, Five, ThreeOfAKind) shouldBe 0
     }
 
+    "return 25 given dices 2, 2, 5, 5, 5 and scoring it in full house" in {
+      YahtzeeApp.score(Two, Two, Five, Five, Five, FullHouse) shouldBe 25
+    }
+
+    "return 25 given dices 5, 5, 5, 1, 1 and scoring it in full house" in {
+      YahtzeeApp.score(Five, Five, Five, One, One, FullHouse) shouldBe 25
+    }
+
+    "return 0 given dices 2, 5, 5, 5, 5 and scoring it in full house" in {
+      YahtzeeApp.score(Two, Five, Five, Five, Five, FullHouse) shouldBe 0
+    }
+
   }
 }

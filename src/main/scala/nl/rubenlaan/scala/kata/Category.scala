@@ -75,6 +75,17 @@ case object FourOfAKind extends Category {
   else 0
 }
 
+case object FullHouse extends Category {
+
+    def isFullHouse(dices: Seq[Dice]): Boolean = {
+      val uniqueValues = dices.distinct
+      val uniqueValuesCount = Seq(dices.count(_ == uniqueValues(0)), dices.count(_ == uniqueValues(1)))
+      Seq(2,3) == uniqueValuesCount.sorted
+    }
+
+    override def score(dices: Seq[Dice]): Int = if (isFullHouse(dices)) 25 else 0
+}
+
 object Category {
   def sumDices(predicate: Dice => Boolean = _ => true): Seq[Dice] => Int =
     (dices: Seq[Dice]) => dices.filter(predicate).map(_.value).sum
