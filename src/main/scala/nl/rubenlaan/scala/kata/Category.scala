@@ -53,6 +53,28 @@ case object SmallStraight extends Category {
 
 }
 
+case object ThreeOfAKind extends Category {
+  override def score(dices: Seq[Dice]): Int = if (
+    dices.containsSlice(Seq.fill(3)(One)) ||
+    dices.containsSlice(Seq.fill(3)(Two)) ||
+    dices.containsSlice(Seq.fill(3)(Three)) ||
+    dices.containsSlice(Seq.fill(3)(Four)) ||
+    dices.containsSlice(Seq.fill(3)(Five))
+  ) sumDices()(dices)
+  else 0
+}
+
+case object FourOfAKind extends Category {
+  override def score(dices: Seq[Dice]): Int = if (
+    dices.containsSlice(Seq.fill(4)(One)) ||
+    dices.containsSlice(Seq.fill(4)(Two)) ||
+    dices.containsSlice(Seq.fill(4)(Three)) ||
+    dices.containsSlice(Seq.fill(4)(Four)) ||
+    dices.containsSlice(Seq.fill(4)(Five))
+  ) sumDices()(dices)
+  else 0
+}
+
 object Category {
   def sumDices(predicate: Dice => Boolean = _ => true): Seq[Dice] => Int =
     (dices: Seq[Dice]) => dices.filter(predicate).map(_.value).sum
