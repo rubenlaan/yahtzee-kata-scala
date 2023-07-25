@@ -49,5 +49,17 @@ class YahtzeeAppSpec extends AnyWordSpec with Matchers {
       YahtzeeApp.score(Two, Three, Four, Five, Six, LargeStraight) shouldBe 40
     }
 
+    "return 30 given dices 2, 3, 4, 5, 2 and scoring it in small straight" in {
+      YahtzeeApp.score(Two, Three, Four, Five, Two, SmallStraight) shouldBe 30
+    }
+
+    "return 30 given dices 5, 1, 2, 3, 4 and scoring it in small straight" in {
+      YahtzeeApp.score(Five, One, Two, Three, Four, SmallStraight) shouldBe 30
+    }
+
+    "return 0 given dices 3, 4, 3, 4, 5 and scoring it in small straight" in {
+      YahtzeeApp.score(Three, Four, Three, Four, Five, SmallStraight) shouldBe 0
+    }
+
   }
 }

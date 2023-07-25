@@ -43,6 +43,16 @@ case object LargeStraight extends Category {
       dices == Seq(Two, Three, Four, Five, Six)
 }
 
+case object SmallStraight extends Category {
+  override def score(dices: Seq[Dice]): Int = if (
+    dices.containsSlice(Seq(One, Two, Three, Four)) ||
+    dices.containsSlice(Seq(Two, Three, Four, Five)) ||
+    dices.containsSlice(Seq(Three, Four, Five, Six))
+  ) 30
+  else 0
+
+}
+
 object Category {
   def sumDices(predicate: Dice => Boolean = _ => true): Seq[Dice] => Int =
     (dices: Seq[Dice]) => dices.filter(predicate).map(_.value).sum
