@@ -65,6 +65,10 @@ class YahtzeeAppSpec extends AnyWordSpec with Matchers {
       YahtzeeApp.score(Four, Five, Five, Five, Five, FourOfAKind) shouldBe 24
     }
 
+    "return 28 given dices 4, 6, 6, 6, 6 and scoring it in four of a kind" in {
+      YahtzeeApp.score(Four, Six, Six, Six, Six, FourOfAKind) shouldBe 28
+    }
+
     "return 0 given dices 4, 4, 5, 5, 5 and scoring it in four of a kind" in {
       YahtzeeApp.score(Four, Four, Five, Five, Five, FourOfAKind) shouldBe 0
     }
@@ -75,6 +79,10 @@ class YahtzeeAppSpec extends AnyWordSpec with Matchers {
 
     "return 0 given dices 4, 4, 2, 5, 5 and scoring it in three of a kind" in {
       YahtzeeApp.score(Four, Four, Two, Five, Five, ThreeOfAKind) shouldBe 0
+    }
+
+    "return 20 given dices 1, 1, 6, 6, 6 and scoring it in three of a kind" in {
+      YahtzeeApp.score(One, One, Six, Six, Six, ThreeOfAKind) shouldBe 20
     }
 
     "return 25 given dices 2, 2, 5, 5, 5 and scoring it in full house" in {

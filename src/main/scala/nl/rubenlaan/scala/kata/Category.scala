@@ -59,7 +59,8 @@ case object ThreeOfAKind extends Category {
     dices.containsSlice(Seq.fill(3)(Two)) ||
     dices.containsSlice(Seq.fill(3)(Three)) ||
     dices.containsSlice(Seq.fill(3)(Four)) ||
-    dices.containsSlice(Seq.fill(3)(Five))
+    dices.containsSlice(Seq.fill(3)(Five)) ||
+    dices.containsSlice(Seq.fill(3)(Six))
   ) sumDices()(dices)
   else 0
 }
@@ -70,20 +71,22 @@ case object FourOfAKind extends Category {
     dices.containsSlice(Seq.fill(4)(Two)) ||
     dices.containsSlice(Seq.fill(4)(Three)) ||
     dices.containsSlice(Seq.fill(4)(Four)) ||
-    dices.containsSlice(Seq.fill(4)(Five))
+    dices.containsSlice(Seq.fill(4)(Five)) ||
+    dices.containsSlice(Seq.fill(4)(Six))
   ) sumDices()(dices)
   else 0
 }
 
 case object FullHouse extends Category {
 
-    def isFullHouse(dices: Seq[Dice]): Boolean = {
-      val uniqueValues = dices.distinct
-      val uniqueValuesCount = Seq(dices.count(_ == uniqueValues(0)), dices.count(_ == uniqueValues(1)))
-      Seq(2,3) == uniqueValuesCount.sorted
-    }
+  def isFullHouse(dices: Seq[Dice]): Boolean = {
+    val uniqueValues = dices.distinct
+    val uniqueValuesCount =
+      Seq(dices.count(_ == uniqueValues(0)), dices.count(_ == uniqueValues(1)))
+    Seq(2, 3) == uniqueValuesCount.sorted
+  }
 
-    override def score(dices: Seq[Dice]): Int = if (isFullHouse(dices)) 25 else 0
+  override def score(dices: Seq[Dice]): Int = if (isFullHouse(dices)) 25 else 0
 }
 
 object Category {
